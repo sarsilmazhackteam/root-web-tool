@@ -74,7 +74,7 @@ def detect_sql_database(url):
         print(colored("[!] SQLMap yüklü değil. Lütfen sqlmap'in kurulu olduğundan emin olun.", 'red'))
     except Exception as e:
         print(colored(f"[!] SQLMap çalıştırılırken bir hata oluştu: {str(e)}", 'red'))
-
+        
 
 # Komut Enjeksiyonu Testi
 def test_command_injection(url):
