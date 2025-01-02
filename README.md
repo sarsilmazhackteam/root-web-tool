@@ -51,7 +51,7 @@ pip3 install requests beautifulsoup4 termcolor pyfiglet colorama
 
 ### Adım 4: Dosyayı İndirip Çalıştırma
 ```bash
-git clone 
+git clone https://github.com/sarsilmazhackteam/root-web-tool.git
 ```
 Aracı indirdikten sonra aşağıdaki komutları kullanarak çalıştırabilirsiniz:
 
