@@ -107,6 +107,9 @@ Aracı çalıştırdıktan sonra şu şekilde bir çıktı alabilirsiniz:
 [!] Bulunan veritabanları:
     - test_db
     - users_db
+or
+
+[+][INFO] fetched data logged to text files under '/tmp/sqlmap_output/
 ```
 
 ## Sorun Giderme
