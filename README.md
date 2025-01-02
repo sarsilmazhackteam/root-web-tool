@@ -50,7 +50,9 @@ pip3 install requests beautifulsoup4 termcolor pyfiglet colorama
 **SQLMap** Kali Linux üzerinde varsayılan olarak yüklü olduğu için, ekstra bir kurulum yapmanıza gerek yok. Ancak, başka bir dağıtım kullanıyorsanız, [SQLMap İndir](https://github.com/sqlmapproject/sqlmap) sayfasından indirebilirsiniz.
 
 ### Adım 4: Dosyayı İndirip Çalıştırma
-
+```bash
+git clone 
+```
 Aracı indirdikten sonra aşağıdaki komutları kullanarak çalıştırabilirsiniz:
 
 1. `sarsilmaz.py` dosyasını indirin.
